@@ -9,3 +9,5 @@ export HISTIGNORE="&:ls:ll:la:l.:pwd:exit:clear:clr:[bf]g"
 export EDITOR=vim
 
 export FIGNORE=$FIGNORE:.svn:.DS_Store:.git
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
