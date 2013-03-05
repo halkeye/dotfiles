@@ -1,0 +1,12 @@
+export EDITOR="vim"
+#eval $(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)
+export COLORSHL=`echo \($SHLVL\) % 8 | bc`
+#export PS1='\[\033[01;32m\]\h\[\033[01;34m\] \w\[\033[31m\]$(__git_ps1 " (%s) ")\[\033[01;34m\]$\[\033[00m\] '
+if [ "x$(type -t __git_ps1)" == "xfunction" ]; then
+    PS1='\[\033[01;3${COLORSHL}m\]\u@\h \[\033[01;34m\]\W \[\033[01;31m\]$(__git_ps1 "(%s)")\[\033[01;34m\]\$ \[\033[00m\]'
+else
+    PS1='\[\033[01;3${COLORSHL}m\]\u@\h \[\033[01;34m\]\W \$ \[\033[00m\]'
+fi
+alias mountISO='sudo mount -t iso9660 -o loop'
+export FIGNORE=".svn:.git;$FIGNORE"
+alias datestamp='date +%Y%m%d%H%M%S'
