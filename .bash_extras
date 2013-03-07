@@ -10,3 +10,4 @@ fi
 alias mountISO='sudo mount -t iso9660 -o loop'
 export FIGNORE=".svn:.git;$FIGNORE"
 alias datestamp='date +%Y%m%d%H%M%S'
+source ~/.shell/aliases
