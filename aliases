@@ -41,3 +41,4 @@ shell () {
   ps | grep `echo $$` | awk '{ print $4 }'
 }
 
+alias lpm='puppet module --modulepath=modules'
