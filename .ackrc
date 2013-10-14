@@ -1,0 +1,4 @@
+--type-set=puppet=.pp
+--type-set=jelly=.jelly
+--type-set=groovy=.groovy
+--type-set=coffee=.coffee
