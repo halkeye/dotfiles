@@ -7,7 +7,7 @@ alias iecurl="curl -H \"User-Agent: Mozilla/5.0 (Windows; U; MSIE 6.0; Windows N
 alias ffcurl="curl -H \"User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.8) Gecko/2009032609 Firefox/3.0.0 (.NET CLR 3.5.30729)\""
 
 # mac
-alias updatedb="sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist";
+#alias updatedb="sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist";
 
 # simple web server
 alias webbie="python -m SimpleHTTPServer"
@@ -15,15 +15,18 @@ alias webbie="python -m SimpleHTTPServer"
 dict() {
     grep "$@" /usr/share/dict/words
 }
+
 dls () {
  # directory LS
  echo `ls -l | grep "^d" | awk '{ print $9 }' | tr -d "/"`
 }
+
 if [ -z "\${which tree}" ]; then
   tree () {
       find $@ -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
   }
 fi
+
 exip () {
     # gather external ip address
     echo -n "Current External IP: "
@@ -37,8 +40,12 @@ ips () {
 parse_git_branch(){
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1] /';
 }
+
 shell () {
   ps | grep `echo $$` | awk '{ print $4 }'
 }
 
 alias lpm='puppet module --modulepath=modules'
+alias tmux='tmux -2'
+alias rake='bundle exec rake'
+alias cap='bundle exec cap'
