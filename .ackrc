@@ -2,3 +2,5 @@
 --type-set=jelly=.jelly
 --type-set=groovy=.groovy
 --type-set=coffee=.coffee
+--ignore-file=is:tags
+--ignore-dir=log
