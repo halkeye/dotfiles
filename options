@@ -12,4 +12,5 @@ export FIGNORE=$FIGNORE:.svn:.DS_Store:.git
 export GOPATH=$HOME/git/go
 export PATH=$PATH:$GOPATH/bin
 
+[[ -e "$HOME/Android/Sdk" ]] && export ANDROID_HOME=$HOME/Android/Sdk && export PATH=$ANDROID_HOME/platform-tools:$PATH
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
