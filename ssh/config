@@ -1,0 +1,38 @@
+GSSAPIAuthentication no
+
+Host irl
+  User inreallife
+  Hostname irlevents.com
+Host irltest
+  User irltest
+  Hostname irltest.koji.cc
+Host rib
+  User halkeye
+  Hostname ribbitfrog.kodekoan.com
+  Port 4022
+Host growl
+  User halkeye
+  Hostname growlpanda
+  Port 4022
+Host git.kodekoan.com
+  User git
+Host supernova
+  Port 22
+  User gamedev
+  Hostname 174.6.80.253
+Host salty
+  User saltystories
+  Hostname 65.110.12.162
+Host leftybot
+  ForwardAgent yes
+  User hubot
+  Hostname s2.unixarmy.com
+Host aws-linux
+  User ec2-user
+  Hostname 54.187.189.245
+  IdentityFile ~/.ssh/gavin-telus-ec2.pem
+Host rpi
+  Hostname localhost
+  User gavinm
+  Port 3022
+

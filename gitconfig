@@ -1,0 +1,9 @@
+[user]
+	name = Gavin Mogan
+	email = gavin@kodekoan.com
+[color]
+	ui = auto
+[core]
+	excludesfile = /home/halkeye/.gitignore
+[push]
+	default = simple
