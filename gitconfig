@@ -1,9 +1,10 @@
 [user]
-	name = Gavin Mogan
-	email = gavin@kodekoan.com
+  name = Gavin Mogan
+  email = gavin@gavinmogan.com
 [color]
-	ui = auto
+  ui = auto
 [core]
-	excludesfile = /home/halkeye/.gitignore
+  excludesfile = /home/halkeye/.gitignore
+  pager = less -F -X
 [push]
-	default = simple
+  default = simple
