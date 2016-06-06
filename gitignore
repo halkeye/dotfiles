@@ -1,5 +1,7 @@
 .envrc
 .direnv/
+# vagrant
+.vagrant
 
 # https://raw.githubusercontent.com/github/gitignore/master/Global/Tags.gitignore
 # Ignore tags created by etags, ctags, gtags (GNU global) and cscope
