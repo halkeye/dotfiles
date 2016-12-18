@@ -1,4 +1,5 @@
 .envrc
+.lsyncd
 .direnv/
 # vagrant
 .vagrant
@@ -40,4 +41,3 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-
