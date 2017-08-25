@@ -1,32 +1,63 @@
-ZSHA_BASE=$HOME/.shell
-source $ZSHA_BASE/antigen/antigen.zsh
+skip_global_compinit=1
+export ZPLUG_HOME="${HOME}/.zplug"
 
-antigen use oh-my-zsh
-antigen bundle colored-man-pages
-antigen bundle colorize
+# Check if zplug is installed
+if [[ ! -d ~/.zplug ]]; then
+    git clone https://github.com/zplug/zplug $ZPLUG_HOME
+    source $ZPLUG_HOME/init.zsh && zplug update --self
+fi
+source $ZPLUG_HOME/init.zsh
+autoload -U compinit && compinit -u -C -d "$ZPLUG_HOME/zcompdump"
 
-antigen bundle npm
-antigen bundle ruby
-antigen bundle tmuxinator
-antigen bundle chruby
-antigen bundle docker
-antigen bundle pyenv
-antigen bundle catimg
-antigen bundle vagrant
+zplug "creationix/nvm", use:nvm.sh
+zplug "tj/git-extras", use:"etc/git-extras-completion.zsh", defer:3, if:"[[ $(command -v git) ]]"
+zplug "tmuxinator/tmuxinator", use:"completion/tmuxinator.zsh", defer:3, if:"[[ $(command -v tmuxinator) ]]"
 
-antigen theme aussiegeek
+zplug "denysdovhan/spaceship-zsh-theme", as:theme
 
-if [ "$OSTYPE"="darwin11.0" ]; then
-  antigen bundle osx
+zplug "bobsoppe/zsh-ssh-agent", use:"ssh-agent.zsh", from:github
+zplug "zsh-users/zsh-completions", depth:1
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-history-substring-search"
+zplug "lukechilds/zsh-better-npm-completion", defer:2
+
+
+zplug "zsh-users/zsh-history-substring-search"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+
+zplug check || zplug install
+zplug load --verbose
+
+
+if zplug check "zsh-users/zsh-history-substring-search"; then
+    bindkey '^[[A' history-substring-search-up
+    bindkey '^[[B' history-substring-search-down
 fi
 
-antigen bundle unixorn/autoupdate-antigen.zshplugin
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-history-substring-search
-antigen bundle zsh-users/zsh-completions src
-antigen bundle lukechilds/zsh-nvm
+if command -v rbenv &> /dev/null; then
+    eval "$(rbenv init - zsh --no-rehash)"
+fi
 
-antigen apply
+#antigen bundle chruby
+#antigen bundle docker
+#antigen bundle pyenv
+#antigen bundle catimg
+#antigen bundle vagrant
+#
+##antigen theme aussiegeek
+#antigen theme denysdovhan/spaceship-zsh-theme
+#
+#if [ "$OSTYPE"="darwin11.0" ]; then
+#  antigen bundle osx
+#fi
+#
+#antigen bundle unixorn/autoupdate-antigen.zshplugin
+#antigen bundle zsh-users/zsh-syntax-highlighting
+#antigen bundle zsh-users/zsh-history-substring-search
+#antigen bundle zsh-users/zsh-completions src
+#antigen bundle lukechilds/zsh-nvm
+#
+#antigen apply
 
 source ~/.shell/aliases
 source ~/.shell/options
